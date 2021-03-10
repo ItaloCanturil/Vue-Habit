@@ -1,22 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HabitTracker/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HabitTracker from './components/HabitTracker'
 
 export default {
-  name: 'App',
+  name: 'habit-tracker',
+
   components: {
-    HelloWorld
+    HabitTracker
   }
 }
 </script>
 
-<style>
+<styl
+    HabitTrackere>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
