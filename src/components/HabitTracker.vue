@@ -18,6 +18,7 @@
       <p class="modal__add" @click="searchDate()">Add Goal</p>
       <p class="modal__chart">See the Chart</p>
     </section>
+
   </section>  
 </template>
 

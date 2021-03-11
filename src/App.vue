@@ -1,32 +1,32 @@
 <template>
   <div id="app">
-    <HabitTracker/>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
-<script>
-import HabitTracker from './components/HabitTracker'
-
-export default {
-  name: 'habit-tracker',
-
-  components: {
-    HabitTracker
-  }
-}
-</script>
-
 <style>
-body {
-  background: #0D243C;
-  color: #9EA7B1;
-}
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 60px;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
