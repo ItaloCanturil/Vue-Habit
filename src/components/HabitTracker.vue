@@ -19,6 +19,11 @@
       <p class="modal__chart">See the Chart</p>
     </section>
 
+    <footer class="footer">
+      <figure class="footer__fig">
+        <img class="fig__img" src="../assets/Group7.png" alt="climber">
+      </figure>
+    </footer>
   </section>  
 </template>
 
@@ -37,19 +42,36 @@ export default {
         alert('Put the date')
         return
       }
+      this.$emit('add')
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
+.habit-tracker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .modal {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  margin-top: 15px;
+  width: 400px;
 }
 
 .modal__add {
   margin-right: 10px;
   cursor: pointer;
+}
+
+.fig__img{
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  max-width: 100%;
+  z-index: -999;
 }
 </style>
