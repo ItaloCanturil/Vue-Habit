@@ -17,5 +17,14 @@ export default {
 </script>
 
 <style>
-
+.card {
+  background: #C4C4C4;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 432px;
+  height: 88px;
+  margin: 15px 0 15px;
+}
 </style>
