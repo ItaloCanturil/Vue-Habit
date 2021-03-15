@@ -13,10 +13,13 @@
       :opened-modal='openedModal'
       @close="closeGoal()"
     />
+
+    <Card/>
   </div>
 </template>
 
 <script>
+import Card from './components/Card'
 import HabitTracker from './components/HabitTracker'
 import Modal from './components/Modal'
 
@@ -28,6 +31,7 @@ export default {
   },
 
   components: {
+    Card,
     HabitTracker,
     Modal
   },
