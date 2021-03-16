@@ -10,7 +10,7 @@
 export default {
   data () {
     return {
-      title: ''
+      title: 'Default'
     }
   }
 }
@@ -19,6 +19,7 @@ export default {
 <style>
 .card {
   background: #C4C4C4;
+  border-radius: 10px;
   color: #000;
   display: flex;
   align-items: center;
