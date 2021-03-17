@@ -8,8 +8,8 @@
             <img @click="$emit('close')" class="close__btn" src="../assets/close_big.png" alt="Close Modal">
           </figure>
         </header>
-        <input class="card__field" type="text"/>
-        <button class="card__btn">Add</button>
+        <input class="card__field" type="text" v-model="habit"/>
+        <button class="card__btn" @click="addHabit()">Add</button>
       </section>
     </div>
   </section>  
@@ -17,12 +17,30 @@
 
 <script>
 export default {
+  data () {
+    return {
+      habit: ''
+    }
+  },
+
   props: {
     openedModal: {
       type: Boolean,
       default: false
     }
-  }
+  },
+
+  methods: {
+    addHabit () {
+      if(!this.habit) return
+
+      this.$emit('add', {
+        habit: this.habit
+      })
+
+      this.habit = ''
+    }
+  },
 }
 </script>
 

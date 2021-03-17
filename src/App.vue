@@ -12,9 +12,15 @@
     <Modal
       :opened-modal='openedModal'
       @close="closeGoal()"
+      @add="addHabit"
     />
 
-    <Card/>
+    <Card
+      :item="items"
+      v-for="items in habits"
+      :key="items"
+      @remove="removeHabit"
+    />
   </div>
 </template>
 
@@ -27,6 +33,7 @@ export default {
   data () {
     return {
       openedModal: false,
+      habits: []
     }
   },
 
@@ -43,6 +50,14 @@ export default {
 
     closeGoal () {
       this.openedModal = false
+    },
+
+    addHabit (items) {
+      this.habits.unshift(items)
+    },
+
+    removeHabit(items) {
+      this.habits.splice(items, 1)
     }
   }
 }

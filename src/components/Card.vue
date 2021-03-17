@@ -1,8 +1,9 @@
 <template>
   <div class="card">
-    <p>{{ title }}</p>
+    <p>{{ this.item.habit }}</p>
     <img src="../assets/download_done.png" alt="Confirm the habit">
     <img src="../assets/edit.png" alt="Edit the habit">
+    <img @click="$emit('remove')" src="../assets/close_big.png" alt="Remove the habit">
   </div>
 </template>
 
@@ -11,6 +12,13 @@ export default {
   data () {
     return {
       title: 'Default'
+    }
+  },
+
+  props: {
+    item: {
+      type: Object,
+      required: true
     }
   }
 }
