@@ -7,7 +7,7 @@
         <input type="email" v-model="email" class="form__email" placeholder="Email">
         <input type="password" v-model="password" class="form__password" placeholder="Password">
       </form>
-      <a href="/">Click here for login</a>
+      <router-link to="/">Click here for login</router-link>
       <button @click="register()">Register</button>
     </fieldset>
 
