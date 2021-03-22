@@ -88,4 +88,23 @@ export default {
 .header__close {
   cursor: pointer;
 }
+
+.card__field {
+  border-radius: 8px;
+  border: 0;
+  padding: 5px;
+}
+
+.card__field:focus {
+  box-shadow: inset 2px 2px 3px #181717;
+}
+
+.card__btn {
+  background: #187524;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  padding: 5px 15px;
+  margin-top: 10px;
+}
 </style>
