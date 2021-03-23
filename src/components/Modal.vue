@@ -82,6 +82,7 @@ export default {
 }
 
 .header__title { 
+  font-size: clamp(2rem, 10vw, 3rem);
   margin-left: 6rem;
 }
 
@@ -90,21 +91,25 @@ export default {
 }
 
 .card__field {
-  border-radius: 8px;
-  border: 0;
-  padding: 5px;
-}
-
-.card__field:focus {
-  box-shadow: inset 2px 2px 3px #181717;
+  border-radius: 10px;
+  height: 25px;
+  width: calc(500px - 150px);
 }
 
 .card__btn {
   background: #187524;
+  background: linear-gradient(0deg, #068336 0%, #12b40c 100%);
   border-radius: 8px;
-  border: 0;
+  border: none;
   cursor: pointer;
-  padding: 5px 15px;
+  color: #f2f2f2;
+  padding: 10px 20px 10px;
   margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.card__btn:hover {
+  background: #00ff4c;
+  background: linear-gradient(0deg, #0bda04 0%, #1ccf25 100%);
 }
 </style>

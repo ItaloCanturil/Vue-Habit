@@ -1,7 +1,7 @@
 <template>
   <section class="habit-tracker">
     <header>
-      <h1>{{ title }}</h1>
+      <h1 class="title">{{ title }}</h1>
     </header>
 
     <div class="date">
@@ -53,6 +53,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.title {
+  font-size: clamp(2rem, 10vw, 3.75rem);
+  margin-bottom: 30px;
 }
 
 .modal {
