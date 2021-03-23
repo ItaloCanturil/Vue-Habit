@@ -32,7 +32,7 @@ export default {
   data () {
     return {
       title: 'Habit Tracker',
-      date: '' 
+      date: '',
     }
   },
 
@@ -58,6 +58,12 @@ export default {
 .title {
   font-size: clamp(2rem, 10vw, 3.75rem);
   margin-bottom: 30px;
+}
+
+.date__data {
+  border-radius: 8px;
+  border: none;
+  padding: 5px;
 }
 
 .modal {

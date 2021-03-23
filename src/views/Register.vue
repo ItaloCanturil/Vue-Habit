@@ -3,9 +3,9 @@
     <h1 class="register__title">Sign Up</h1>
     <fieldset class="register__field">
       <form class="field__form">
-        <input type="text" v-model="name" class="form__name" placeholder="Name">
-        <input type="email" v-model="email" class="form__email" placeholder="Email">
-        <input type="password" v-model="password" class="form__password" placeholder="Password">
+        <input type="text" v-model="name" class="form__name form__input" placeholder="Name">
+        <input type="email" v-model="email" class="form__email form__input" placeholder="Email">
+        <input type="password" v-model="password" class="form__password form__input" placeholder="Password">
       </form>
       <router-link to="/">Click here for login</router-link>
       <button @click="register()">Register</button>
@@ -95,5 +95,22 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 80%;
+}
+
+.form__input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #131111;
+  height: 3rem;
+  padding: 5px;
+  margin-bottom: 15px;
+  outline: none;
+  transition: .2s ease-out;
+}
+
+.form__input:focus {
+  border-bottom: 1px solid #095209;
+  box-shadow: 0 1px 0 0 #095209;
 }
 </style>
