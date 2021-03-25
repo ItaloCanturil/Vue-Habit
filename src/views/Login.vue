@@ -4,13 +4,14 @@
     <fieldset class="login__field">
       <form 
        class="field__form"
-       @submit="checkForm"
+       @submit.prevent="checkForm"
+       id="loginForm"
       >
         <input type="email" v-model="email" class="form__email form__input" placeholder="Email">
         <input type="password" v-model="password" class="form__password form__input" placeholder="Password">
       </form>
       <router-link to="/">Esqueci minha senha</router-link>
-      <button>Register</button>
+      <button type="submit" value="submit" form="loginForm">Register</button>
     </fieldset>
 
     <footer class="register__footer">
@@ -22,31 +23,44 @@
 </template>
 
 <script>
+import axiosInstance from '../../services/api'
+
 export default {
   data () {
     return {
-      errors: [],
+      error: false,
       email: '',
       password: ''
     }
   },
   
   methods: {
-    checkForm (e) {
-      this.erros = [];
-
-      if (!this.email) {
-        this.errors.push('Email is required');
+    async login () {
+      try {
+        await axiosInstance.post('/login', {
+          email: this.email,
+          password: this.password
+        })
+        this.$router.push('/profile') 
+      } catch (error) {
+        if (error.response) {
+            console.log(error.response.data.error);
+          } else if (error.request) {
+            console.log(error.request);
+          } else {
+            console.log('Error', error.message);
+          }
+        console.log(error);
       }
-      if (!this.password) {
-        this.erros.push('Password is required');
+    },
+
+    checkForm () {
+      if (!this.email && !this.password && !this.error) {
+        this.error = true;
+        return
       }
 
-      if (!this.erros.length) {
-        return true
-      }
-
-      e.preventDefault();
+      this.login()
     }
   }
 }
