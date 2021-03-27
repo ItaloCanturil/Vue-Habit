@@ -37,10 +37,11 @@ export default {
   methods: {
     async login () {
       try {
-        await axiosInstance.post('/login', {
+        const response = await axiosInstance.post('/login', {
           email: this.email,
           password: this.password
         })
+        localStorage.setItem('token', response.data.auth.token)
         this.$router.push('/profile') 
       } catch (error) {
         if (error.response) {

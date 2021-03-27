@@ -1,6 +1,7 @@
 <template>
   <section class="habit-tracker">
     <header>
+      <button @click="logout()">Logout</button>
       <h1 class="title">{{ title }}</h1>
     </header>
 
@@ -28,6 +29,7 @@
 </template>
 
 <script>
+import axiosInstance from '../../services/api'
 export default {
   data () {
     return {
@@ -43,6 +45,12 @@ export default {
         return
       }
       this.$emit('add')
+    },
+    logout  () {
+      axiosInstance.post('/logout', {
+
+      })
+      this.$router.push('/login')
     }
   }
 }
