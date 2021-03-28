@@ -35,6 +35,7 @@ export default {
     return {
       title: 'Habit Tracker',
       date: '',
+      user: {}
     }
   },
 
@@ -47,9 +48,8 @@ export default {
       this.$emit('add')
     },
     logout  () {
-      axiosInstance.post('/logout', {
-
-      })
+      axiosInstance.post('/logout')
+      localStorage.removeItem('token')
       this.$router.push('/login')
     }
   }
