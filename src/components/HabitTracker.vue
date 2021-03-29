@@ -1,9 +1,14 @@
 <template>
   <section class="habit-tracker">
     <header>
-      <button @click="logout()">Logout</button>
-      <h1 class="title">{{ title }}</h1>
+      <button @click="logout()"
+              class="btn-logout"
+      >
+      Logout
+      </button>
     </header>
+      
+    <h1 class="title">{{ title }}</h1>
 
     <div class="date">
       <label for="date__data">Date: </label>
@@ -92,5 +97,18 @@ export default {
   position: absolute;
   max-width: 100%;
   z-index: -999;
+}
+
+.btn-logout {
+  background: #fafafa;
+  border-radius: 8px;
+  border: 2px solid #fafafa;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.btn-logout:hover {
+  border-top-color: #bbb;
+  border-width: 4px 2px 0;
 }
 </style>

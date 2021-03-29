@@ -41,7 +41,8 @@ export default {
           email: this.email,
           password: this.password
         })
-        localStorage.setItem('token', response.data.auth.token)
+        const token = response.data.auth.token
+        localStorage.setItem('token', token)
         this.$router.push('/profile') 
       } catch (error) {
         if (error.response) {
