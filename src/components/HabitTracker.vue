@@ -53,7 +53,11 @@ export default {
       this.$emit('add')
     },
     logout  () {
-      axiosInstance.post('/logout')
+      axiosInstance.post('/logout', {}, {
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+      })
       localStorage.removeItem('token')
       this.$router.push('/login')
     }

@@ -61,41 +61,5 @@ export default {
 </script>
 
 <style>
-:root {
-  --primary-color: #0D243C;
-  --font-color: #9EA7B1;
-}
-
-body {
-  background: var(--primary-color);
-  font-family: 'Comic-sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: grayscale;
-  color: var(--font-color);
-
-}
-
-#app {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 890px;
-  width: 100%;
-  min-height: 100vh;
-  margin: 0 auto; 
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+@import 'assets/style.css'
 </style>

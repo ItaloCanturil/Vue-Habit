@@ -11,7 +11,8 @@
         <input type="password" v-model="password" class="form__password form__input" placeholder="Password">
       </form>
       <router-link to="/">Esqueci minha senha</router-link>
-      <button type="submit" value="submit" form="loginForm">Register</button>
+      <button type="submit" value="submit" form="loginForm">Login</button>
+      <router-link to="/register">Sign up now</router-link>
     </fieldset>
 
     <footer class="register__footer">
@@ -106,5 +107,21 @@ export default {
   flex-direction: column;
   justify-content: center;
   width: 80%;
+}
+
+.form__input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #131111;
+  height: 3rem;
+  padding: 5px;
+  margin-bottom: 15px;
+  outline: none;
+  transition: .2s ease-out;
+}
+
+.form__input:focus {
+  border-bottom: 1px solid #095209;
+  box-shadow: 0 1px 0 0 #095209;
 }
 </style>>
