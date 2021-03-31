@@ -1,6 +1,6 @@
 <template>
   <section class="habit-tracker">
-    <header>
+    <header class="header-tracker">
       <button @click="logout()"
               class="btn-logout"
       >
@@ -72,6 +72,14 @@ export default {
   align-items: center;
 }
 
+.header-tracker {
+  background: #023047;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .title {
   font-size: clamp(2rem, 10vw, 3.75rem);
   margin-bottom: 30px;
@@ -108,7 +116,7 @@ export default {
   border-radius: 8px;
   border: 2px solid #fafafa;
   cursor: pointer;
-  padding: 10px;
+  padding: 5px 10px 5px;
 }
 
 .btn-logout:hover {
