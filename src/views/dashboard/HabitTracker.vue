@@ -27,14 +27,14 @@
 
     <footer class="footer">
       <figure class="footer__fig">
-        <img class="fig__img" src="../assets/Group7.png" alt="climber">
+        <img class="fig__img" src="../../assets/Group7.png" alt="climber">
       </figure>
     </footer>
   </section>  
 </template>
 
 <script>
-import axiosInstance from '../../services/api'
+import axiosInstance from '../../../services/api'
 export default {
   data () {
     return {
@@ -73,7 +73,9 @@ export default {
 }
 
 .header-tracker {
-  background: #023047;
+  background: #0e2c4d;
+  display: flex;
+  align-items: center;
   height: 40px;
   position: fixed;
   top: 0;

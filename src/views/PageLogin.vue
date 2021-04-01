@@ -44,7 +44,7 @@ export default {
         })
         const token = response.data.auth.token
         localStorage.setItem('token', token)
-        this.$router.push('/profile') 
+        this.$router.push('/') 
       } catch (error) {
         if (error.response) {
             console.log(error.response.data.error);
