@@ -8,19 +8,8 @@
 export default {
   data () {
     return {
-      openedModal: false,
-      habits: []
     }
   },
-
-  // methods: {
-  //   addHabit (items) {
-  //     this.habits.unshift(items)
-  //   },
-
-  //   removeHabit(items) {
-  //     this.habits.splice(items, 1)
-  //   }
   }
 </script>
 

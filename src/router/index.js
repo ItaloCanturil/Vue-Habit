@@ -7,7 +7,13 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    component: () => import('@/views/dashboard/HabitTracker'),
+    component: () => import('@/views/dashboard/Index'),
+    children: [
+      {
+        path: 'profile',
+        component: () => import('@/views/dashboard/HabitTracker'),
+      }
+    ]
   },
   {
     name: 'Register',
