@@ -67,15 +67,16 @@ export default {
 
 <style scoped>
 .habit-tracker {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .header-tracker {
+  align-items: center;
   background: #0e2c4d;
   display: flex;
-  align-items: center;
+  justify-content: end;
   height: 40px;
   position: fixed;
   top: 0;
@@ -119,6 +120,7 @@ export default {
   border: 2px solid #fafafa;
   cursor: pointer;
   padding: 5px 10px 5px;
+  margin-right: 15px;
 }
 
 .btn-logout:hover {

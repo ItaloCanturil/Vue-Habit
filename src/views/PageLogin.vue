@@ -44,6 +44,7 @@ export default {
         })
         const token = response.data.auth.token
         localStorage.setItem('token', token)
+        this.$store.commit('setToken', token)
         this.$router.push('/') 
       } catch (error) {
         if (error.response) {
@@ -64,7 +65,7 @@ export default {
       }
 
       this.login()
-    }
+    },
   }
 }
 </script>
