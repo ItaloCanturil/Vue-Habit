@@ -10,7 +10,7 @@ const routes = [
     component: () => import('@/views/dashboard/Index'),
     children: [
       {
-        path: 'profile',
+        path: '/',
         component: () => import('@/views/dashboard/HabitTracker'),
       }
     ]
