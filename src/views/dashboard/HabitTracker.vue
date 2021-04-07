@@ -50,7 +50,10 @@ export default {
         alert('Put the date')
         return
       }
-      this.$emit('add')
+      console.log(this.date)
+      this.$emit('add', {
+        date: this.date
+      })
     },
     logout  () {
       axiosInstance.post('/logout', {}, {

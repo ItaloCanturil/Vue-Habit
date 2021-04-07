@@ -10,18 +10,21 @@
         @add="addHabit"
       />
 
-      <Card
-        :item="items"
-        v-for="items in habits"
-        :key="items"
-        @remove="removeHabit"
-      />
+      <draggable>
+        <Card
+          :item="items"
+          v-for="items in habits"
+          :key="items"
+          @remove="removeHabit"
+        />
+      </draggable>
     </div>
 </template>
 
 <script>
 import Card from '../../components/Card'
 import Modal from '../../components/Modal'
+import draggable from 'vuedraggable';
 export default {
   data () {
     return {
@@ -31,7 +34,8 @@ export default {
   },
   components: {
     Card,
-    Modal
+    Modal,
+    draggable
   },
   methods: {
     addGoal () {
