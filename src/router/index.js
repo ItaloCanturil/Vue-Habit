@@ -44,6 +44,7 @@ router.beforeEach((to, from, next) => {
   const loggedIn = localStorage.getItem('token')
 
   if(authRequired && !loggedIn) next('/home');
+  else if (!authRequired && loggedIn) next('/');
   else next();
 })
 

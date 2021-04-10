@@ -35,6 +35,7 @@
 
 <script>
 import axiosInstance from '../../../services/api'
+import isUnauthorized from '@/helpers/is-unauthorized'
 export default {
   data () {
     return {
@@ -42,6 +43,20 @@ export default {
       date: '',
       user: {}
     }
+  },
+
+  mounted () {
+    axiosInstance.get('/', {
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+      })
+      .catch(error => {
+        if (isUnauthorized(error)) {
+          localStorage.removeItem('token');
+          this.$router.push('/login');
+        }
+      })
   },
 
   methods: {
