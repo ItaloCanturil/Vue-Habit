@@ -1,5 +1,9 @@
 # habit-tracker
 
+## Description
+
+This project it is a tracker for you habits
+
 ## Project setup
 ```
 npm install
