@@ -7,8 +7,15 @@
        @submit.prevent="checkForm"
        id="loginForm"
       >
-        <input type="email" v-model="email" class="form__email form__input" placeholder="Email">
+        <input type="email"
+          v-model="email"
+          class="form__email form__input"
+          placeholder="Email"
+          @change="validateEmail"
+        >
+        <p>This email is invalid</p>
         <input type="password" v-model="password" class="form__password form__input" placeholder="Password">
+        <p>This email is invalid</p>
       </form>
       <router-link to="/">Esqueci minha senha</router-link>
       <button type="submit" value="submit" form="loginForm">Login</button>
@@ -56,6 +63,11 @@ export default {
           }
         console.log(error);
       }
+    },
+
+    validateEmail (email) { 
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return console.log(re.test(String(email.target._value).toLowerCase()));
     },
 
     checkForm () {
