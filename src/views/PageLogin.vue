@@ -1,32 +1,68 @@
 <template>
   <div class="login">
     <h1 class="login__title">Login</h1>
-    <fieldset class="login__field">
-      <form 
+    <div class="login__field">
+      <form
        class="field__form"
        @submit.prevent="checkForm"
        id="loginForm"
       >
+        <label for="email">
+          Email:
+        </label>
         <input type="email"
-          v-model="email"
+          v-model="authLogin.email"
           class="form__email form__input"
-          placeholder="Email"
-          @change="validateEmail"
+          name= "email"
+          @blur="validateEmail"
         >
-        <p>This email is invalid</p>
-        <input type="password" v-model="password" class="form__password form__input" placeholder="Password">
-        <p>This email is invalid</p>
+        <p
+          class="form__error"
+          v-if="hasError.email.req"
+        >
+          This email is invalid
+        </p>
+        <label for="password"
+          class="form__password"
+        >
+          Password:
+        </label>
+        <input type="password"
+          name="password"
+          v-model="authLogin.password"
+          class="form__input"
+          @blur="validatePassword"
+        >
+        <p
+          class="form__error"
+          v-if="hasError.password.req"
+        >
+        This password is invalid
+        </p>
+      <router-link to="/"
+        class="login__forget"
+      >
+        Esqueci minha senha
+      </router-link>
+      <button 
+        type="submit"
+        value="submit"
+        form="loginForm"
+        class="login__btn"
+      >
+        Login
+      </button>
+      <router-link to="/register"
+        class="login__register"
+      >
+        Sign up now
+      </router-link>
       </form>
-      <router-link to="/">Esqueci minha senha</router-link>
-      <button type="submit" value="submit" form="loginForm">Login</button>
-      <router-link to="/register">Sign up now</router-link>
-    </fieldset>
+    </div>
 
-    <footer class="register__footer">
-      <figure class="footer__fig">
-        <img class="fig__wave" src="../assets/wave.png" alt="Wave">
-      </figure>
-    </footer>
+    <figure class="footer__fig">
+      <img class="fig__wave" src="../assets/wave.png" alt="Wave">
+    </figure>
   </div>  
 </template>
 
@@ -37,18 +73,25 @@ export default {
   data () {
     return {
       error: false,
-      email: '',
-      password: ''
+      hasError: {
+        email: {
+          req: false
+        },
+        password: {
+          req: false
+        }
+      },
+      authLogin: {
+        email: '',
+        password: '',
+      }
     }
   },
   
   methods: {
     async login () {
       try {
-        const response = await axiosInstance.post('/login', {
-          email: this.email,
-          password: this.password
-        })
+        const response = await axiosInstance.post('/login', this.authLogin)
         const token = response.data.auth.token
         localStorage.setItem('token', token)
         this.$store.commit('setToken', token)
@@ -65,13 +108,26 @@ export default {
       }
     },
 
-    validateEmail (email) { 
+    validatePassword () {
+      this.hasError.password.req = false
+      const re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+      if(!re.test(this.authLogin.password)) {
+        this.hasError.password.req = true;
+        return
+      }
+    },
+
+    validateEmail () { 
+      this.hasError.email.req = false
       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return console.log(re.test(String(email.target._value).toLowerCase()));
+      if(!re.test(this.authLogin.email.toLowerCase())) {
+        this.hasError.email.req = true;
+        return
+      }
     },
 
     checkForm () {
-      if (!this.email && !this.password && !this.error) {
+      if (!this.authLogin.email && !this.authLogin.password && !this.error) {
         this.error = true;
         return
       }
@@ -126,9 +182,7 @@ export default {
   background: transparent;
   border: none;
   border-bottom: 1px solid #131111;
-  height: 3rem;
-  padding: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   outline: none;
   transition: .2s ease-out;
 }
@@ -136,5 +190,37 @@ export default {
 .form__input:focus {
   border-bottom: 1px solid #095209;
   box-shadow: 0 1px 0 0 #095209;
+  padding: 10px;
+}
+
+.form__error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.form__password {
+  margin-top: 5px;
+}
+
+.login__forget, .login__register {
+  text-decoration: none;
+  text-align: center;
+  color: #184e77;
+  margin-top: 5px;
+}
+
+.login__btn {
+  background: linear-gradient(0deg, #1e6091 0%, #168aad 100%);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #f2f2f2;
+  padding: 10px;
+  margin: 10px 0px;
+  width: 100%;
+}
+
+.login__btn:hover {
+  background: linear-gradient(0deg, #1a759f 0%, #184e77 100%);
 }
 </style>>
