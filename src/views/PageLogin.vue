@@ -13,7 +13,7 @@
         <input type="email"
           v-model="authLogin.email"
           class="form__email form__input"
-          name= "email"
+          name="email"
           @blur="validateEmail"
         >
         <p
@@ -40,7 +40,7 @@
         This password is invalid
         </p>
       <router-link to="/"
-        class="login__forget"
+        class="form__forget"
       >
         Esqueci minha senha
       </router-link>
@@ -48,12 +48,12 @@
         type="submit"
         value="submit"
         form="loginForm"
-        class="login__btn"
+        class="form__btn"
       >
         Login
       </button>
       <router-link to="/register"
-        class="login__register"
+        class="form__register"
       >
         Sign up now
       </router-link>
@@ -202,14 +202,14 @@ export default {
   margin-top: 5px;
 }
 
-.login__forget, .login__register {
+.form__forget, .form__register {
   text-decoration: none;
   text-align: center;
   color: #184e77;
   margin-top: 5px;
 }
 
-.login__btn {
+.form__btn {
   background: linear-gradient(0deg, #1e6091 0%, #168aad 100%);
   border: none;
   border-radius: 5px;
@@ -220,7 +220,7 @@ export default {
   width: 100%;
 }
 
-.login__btn:hover {
+.form__btn:hover {
   background: linear-gradient(0deg, #1a759f 0%, #184e77 100%);
 }
-</style>>
+</style>
